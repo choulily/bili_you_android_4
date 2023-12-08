@@ -155,7 +155,7 @@ flutter_launcher_icons:
   adaptive_icon_background: "#ffffff"
   adaptive_icon_foreground: "assets/icon/bili.png"
   remove_alpha_ios: true
-  min_sdk_android: 21 # android min sdk min:16, default 21
+  min_sdk_android: 16 # android min sdk min:16, default 21
   web:
     generate: true
     image_path: "assets/icon/bili.png"
