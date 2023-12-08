@@ -282,7 +282,7 @@ class _ReplyItemWidgetState extends State<ReplyItemWidget> {
                                       )),
                         ),
                         Padding(
-                          padding:const EdgeInsets.only(top:0, bottom: 0,left: 5),
+                          padding: EdgeInsets.only(top: 10, bottom: 5),
                           child: Row(
                             children: [
                               StatefulBuilder(builder: (context, setState) {
@@ -381,28 +381,17 @@ class _ReplyItemWidgetState extends State<ReplyItemWidget> {
                                                     j.content, context)
                                               ],
                                             ),
-                                            style: TextStyle(
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .onPrimaryContainer
-                                            ),
                                             maxLines: 2,
                                             overflow: TextOverflow.ellipsis,
                                           )),
-                                    if (widget.reply.replyCount > 3)
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 8),
-                                        child: Text(
-                                          '共 ${StringFormatUtils.numFormat(widget.reply.replyCount)} 条回复 >',
-                                          maxLines: 2,
-                                          style: TextStyle(
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .onPrimaryContainer
-                                          ),
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      )
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8),
+                                      child: Text(
+                                        '共 ${StringFormatUtils.numFormat(widget.reply.replyCount)} 条回复 >',
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    )
                                   ],
                                 ),
                                 onTap: () {
@@ -444,7 +433,7 @@ class ThumUpButton extends StatelessWidget {
         style: ButtonStyle(
           visualDensity: VisualDensity.comfortable,
           padding: const MaterialStatePropertyAll(
-              EdgeInsets.all(5)),
+              EdgeInsets.only(left: 10, right: 10, bottom: 0, top: 0)),
           foregroundColor: selected == true
               ? MaterialStatePropertyAll(
                   Theme.of(context).colorScheme.onPrimary)

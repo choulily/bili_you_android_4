@@ -2,22 +2,51 @@ import 'dart:convert';
 
 import 'package:bili_you/common/models/network/user/user_info.dart';
 
+class FollowingResponse {
+  int? code;
+  String? message;
+  int? ttl;
+  dynamic data;
+
+  FollowingResponse({this.code, this.message, this.ttl, this.data});
+
+  factory FollowingResponse.fromRawJson(String str) =>
+      FollowingResponse.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
+  factory FollowingResponse.fromJson(Map<String, dynamic> json) =>
+      FollowingResponse(
+        code: json["code"],
+        message: json["message"],
+        ttl: json["ttl"],
+        data: json["data"]
+      );
+
+  Map<String, dynamic> toJson() => {
+        "code": code,
+        "message": message,
+        "ttl": ttl,
+        "data": data?.tojson(),
+      };
+}
+
 class UserRelation {
   int? mid;
   int? attribute;
   int? mtime;
   dynamic tag;
   int? special;
-  Object? contractInfo;
+  Object? contract_info;
   String? uname;
   String? face;
-  int? faceNft;
+  int? face_nft;
   String? sign;
   OfficialVerify? officialVerify;
   Vip? vip;
-  String? nftIcon;
-  String? recReason;
-  String? trackId;
+  String? nft_icon;
+  String? rec_reason;
+  String? track_id;
 
   UserRelation({
     this.mid,
@@ -25,16 +54,16 @@ class UserRelation {
     this.mtime,
     this.tag,
     this.special,
-    this.contractInfo,
+    this.contract_info,
     this.uname,
     this.face,
-    this.faceNft,
+    this.face_nft,
     this.sign,
     this.officialVerify,
     this.vip,
-    this.nftIcon,
-    this.recReason,
-    this.trackId,
+    this.nft_icon,
+    this.rec_reason,
+    this.track_id,
   });
 
   factory UserRelation.fromRawJson(String str) => json.decode(str);
@@ -44,16 +73,16 @@ class UserRelation {
       mtime: json["mtime"],
       tag: json["tag"],
       special: json["special"],
-      contractInfo: json["contract_info"],
+      contract_info: json["contract_info"],
       uname: json["uname"],
       face: json["face"],
-      faceNft: json["face_nft"],
+      face_nft: json["face_nft"],
       sign: json["sign"],
       officialVerify: OfficialVerify.fromJson(json["official_verify"]),
       vip: Vip.fromJson(json["vip"]),
-      nftIcon: json["nft_icon"],
-      recReason: json["rec_reason"],
-      trackId: json["track_id"]);
+      nft_icon: json["nft_icon"],
+      rec_reason: json["rec_reason"],
+      track_id: json["track_id"]);
 
   Map<String, dynamic> toJson() => {
         "mid": mid,
@@ -61,16 +90,16 @@ class UserRelation {
         "mtime": mtime,
         "tag": tag,
         "special": special,
-        "contract_info": contractInfo,
+        "contract_info": contract_info,
         "uname": uname,
         "face": face,
-        "face_nft": faceNft,
+        "face_nft": face_nft,
         "sign": sign,
         "official_verify": officialVerify?.toJson(),
         "vip": vip?.toJson(),
-        "nft_icon": nftIcon,
-        "rec_reason": recReason,
-        "track_id": trackId,
+        "nft_icon": nft_icon,
+        "rec_reason": rec_reason,
+        "track_id": track_id,
       };
 
   String toRawJson() => json.encode(toJson());

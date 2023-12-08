@@ -1,11 +1,10 @@
-class ReportHistory {
-  ReportHistory({
+class report_history {
+  report_history({
     this.code,
     this.message,
-    this.ttl,
-  });
+    this.ttl,});
 
-  ReportHistory.fromJson(dynamic json) {
+  report_history.fromJson(dynamic json) {
     code = json['code'];
     message = json['message'];
     ttl = json['ttl'];
@@ -21,4 +20,5 @@ class ReportHistory {
     map['ttl'] = ttl;
     return map;
   }
+
 }

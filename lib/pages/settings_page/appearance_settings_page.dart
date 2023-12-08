@@ -89,7 +89,7 @@ class _AppearanceSettingsPageState extends State<AppearanceSettingsPage> {
             },
           ),
           ListTile(
-            title: const Text("主题颜色"),
+            title: const Text("主题"),
             subtitle: Text(SettingsUtil.currentTheme.value),
             onTap: () {
               showDialog(

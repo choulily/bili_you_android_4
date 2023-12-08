@@ -22,11 +22,9 @@ class UserMenuController extends GetxController {
   RxInt followingCount = 0.obs;
   RxInt followerCount = 0.obs;
 
-  RxBool islogin_ = false.obs;
-
   late LoginUserInfo userInfo;
   late LoginUserStat userStat;
-//用戶信息
+
   _initData() async {
     try {
       userInfo = await LoginApi.getLoginUserInfo();
@@ -39,7 +37,6 @@ class UserMenuController extends GetxController {
       dynamicCount.value = userStat.dynamicCount;
       followerCount.value = userStat.followerCount;
       followingCount.value = userStat.followingCount;
-      islogin_.value = true;
     } catch (e) {
       log(e.toString());
     }
@@ -55,11 +52,7 @@ class UserMenuController extends GetxController {
   // }
   Future<void> loadOldFace() async {
     var box = BiliYouStorage.user;
-    if (!await hasLogin()) {
-      faceUrl.value = ApiConstants.noface;
-    } else {
-      faceUrl.value = box.get("userFace") ?? ApiConstants.noface;
-    }
+    faceUrl.value = box.get("userFace") ?? ApiConstants.noface;
     return;
   }
 
@@ -79,16 +72,15 @@ class UserMenuController extends GetxController {
     super.onReady();
     _initData();
   }
-//登出
+
   onLogout() async {
     HttpUtils.cookieManager.cookieJar.deleteAll();
     resetRX();
     var box = BiliYouStorage.user;
     box.put(UserStorageKeys.hasLogin, false);
     cacheManager.emptyCache();
-    islogin_.value = false;
   }
-//檢查用戶是否登錄
+
   Future<bool> hasLogin() async {
     return BiliYouStorage.user.get(UserStorageKeys.hasLogin) ?? false;
   }
