@@ -1,3 +1,4 @@
+<a style="text-size=48px">给找到这个项目的人指条路，这个项目因为使用的是flutter，本身对api16适配不好，适配api16的flutter已经很老了，不好向前移殖。因此fork了之后就一直没开干，今天登录github居然发现有人star了这个项目，有点意外，但是对于android4.x尤其是android4.4.2前的机器我们还有的选择，目前还积极支持android4.0-android4.4.2的b站客户端还有：哔哩终端（手表用的，有就不错了）链接：biliterminal.cn <a href="https://bilitermoinal.cn/">点我跳转</a></a>
 # Bili You
 
 <div align=center>
