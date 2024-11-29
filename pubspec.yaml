@@ -27,7 +27,8 @@ dependencies:
   gt3_flutter_plugin: ^0.0.8
   flutter_cache_manager: ^3.3.1
   protobuf: ^3.0.0
-  connectivity_plus: ^4.0.2
+  #connectivity_plus: ^4.0.2
+  connectivity_plus: ^3.0.6 # using 3.0.6 since 4.0 up requires api 19 up
 
   # 加解密
   encrypt: ^5.0.1
